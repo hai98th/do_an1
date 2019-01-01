@@ -1,5 +1,5 @@
 import React from "react";
-import * as prj1Api from "./prj1/prj1Api";
+import * as prj1Api from "./prj1Api";
 import {Modal} from "react-bootstrap";
 
 
@@ -12,6 +12,11 @@ class RoomContainer extends React.Component {
             modal: false
         };
         this.updateFormData = this.updateFormData.bind(this);
+    }
+
+
+    componentWillMount() {
+        this.getRoom();
     }
 
     updateFormData(event) {
@@ -39,9 +44,6 @@ class RoomContainer extends React.Component {
         })
     }
 
-    componentWillMount() {
-        this.getRoom();
-    }
 
     getRoom() {
         prj1Api.getRoomApi()

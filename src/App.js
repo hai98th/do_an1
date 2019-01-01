@@ -1,5 +1,5 @@
 import React from 'react';
-import TabContainer from "./modules/tab/TabContainer";
+import TabContainer from "./modules/TabContainer";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import {router} from "./router";
 

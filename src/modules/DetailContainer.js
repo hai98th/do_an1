@@ -1,36 +1,60 @@
 import React from "react";
-import * as prj1Api from "./prj1/prj1Api";
+import * as prj1Api from "./prj1Api";
+import {Modal} from "react-bootstrap";
 
-class DetailContainer extends React.Component{
+
+class DetailContainer extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             meeting: [],
-            detail:[]
+            detail: [],
+            modal: false,
+            detailModal: {},
         };
     }
 
-    componentWillMount(){
-        this.getDetail(1);
+    componentWillMount() {
+        this.getDetail(window.location.pathname.slice(9, 12));
         this.getMeeting();
-        console.log(this.state.meeting)
-
     }
 
+    changeModal() {
+        this.setState({
+            ...this.state,
+            modal: !this.state.modal
+        })
+    }
+
+    changeModal2(a) {
+        this.setState({
+            ...this.state,
+            modal: !this.state.modal,
+            detailModal: a
+        })
+    }
+    updateFormData(event) {
+        const field = event.target.name;
+        let psn = {...this.state.detailModal};
+        psn[field] = event.target.value;
+        this.setState({
+            ...this.state,
+            detailModal: psn
+        })
+    }
     getMeeting() {
 
         prj1Api.getMeetingApi()
-            .then((res)=>{
-                this.setState({
-                    ...this.state,
-                    meeting: res.data.meeting})
+            .then((res) => {
+                this.setState({meeting: res.data.meeting})
             });
 
     }
-    getDetail() {
 
-        prj1Api.getDetailApi(1)
-            .then((res)=>{
+    getDetail(id) {
+
+        prj1Api.getDetailApi(id)
+            .then((res) => {
                 this.setState({
                     ...this.state,
                     detail: res.data.detail
@@ -39,8 +63,45 @@ class DetailContainer extends React.Component{
 
     }
 
-    render(){
-        let mt = this.state.meeting;
+    delete(id) {
+        prj1Api.deleteDetailApi(window.location.pathname.slice(9, 12), id)
+            .then(function (res) {
+                if (res) {
+                    alert("Xóa thành công");
+                }
+            });
+        window.location.reload();
+    }
+
+
+    submit(psn) {
+        if (psn.id) {
+            prj1Api.editDetailApi(window.location.pathname.slice(9, 12),psn)
+                .then((res) => {
+                    if (res) {
+                        alert("Chỉnh sủa thành công");
+                    }
+                });
+        }
+        else {
+            prj1Api.createDetailApi(window.location.pathname.slice(9, 12),psn)
+                .then((res) => {
+                    if (res) {
+                        alert("Tạo mới thành công");
+                    }
+                });
+        }
+        window.location.reload()
+
+    }
+    render() {
+        let mt = {};
+        if (this.state.meeting[0]) {
+            this.state.meeting.map((m) => {
+                if (m.id == window.location.pathname.slice(9, 12)) mt = m
+            })
+        }
+
         let dt = this.state.detail;
         return (
 
@@ -62,7 +123,13 @@ class DetailContainer extends React.Component{
                                     </div>
                                     <div className="col-md-4 col-xs-4">
                                         {
-                                            mt.members
+                                            this.state.meeting[0] ?
+                                                JSON.parse(mt.members) && JSON.parse(mt.members).map((mem, index) => {
+                                                    return (
+                                                        <p key={index}>Member: <b>{mem}</b></p>
+                                                    );
+                                                })
+                                                : ""
                                         }
                                     </div>
                                     <div className="col-md-4 col-xs-4">
@@ -78,12 +145,12 @@ class DetailContainer extends React.Component{
 
                                     <div>
                                         <div
-                                           >
+                                        >
                                             <button
                                                 className="btn btn-primary btn-round btn-xs button-add none-margin"
                                                 type="button"
                                                 onClick={() => {
-
+                                                    this.changeModal2({time:"HH:MM:SS"});
                                                 }}>
 
                                                 <strong>+</strong>
@@ -91,7 +158,8 @@ class DetailContainer extends React.Component{
                                         </div>
                                     </div>
 
-                                </div><br/>
+                                </div>
+                                <br/>
 
                                 {
                                     dt && dt.map((aa, index) => {
@@ -100,15 +168,17 @@ class DetailContainer extends React.Component{
                                                 <b> {aa.time} &emsp; {aa.name}:</b>
                                                 &emsp;{aa.content}
                                                 &emsp;<span style={{color: "#878787"}}>
+                                                <a>
                                                 <i className="material-icons" style={{fontSize: 18}}
-                                                   onClick={()=>{
-
+                                                   onClick={() => {
+                                                    this.changeModal2(aa)
                                                    }}
-                                                >edit</i>
-                                                <i style={{fontSize: 18}} className="material-icons"
-                                                   onClick={()=>{
+                                                >edit</i></a>
+                                                <a><i style={{fontSize: 18}} className="material-icons"
+                                                   onClick={() => {
+                                                       this.delete(aa.id);
                                                    }}
-                                                >delete</i>
+                                                >delete</i></a>
                                             </span>
                                             </p>
                                         );
@@ -121,10 +191,68 @@ class DetailContainer extends React.Component{
 
                         </div>
                     </div>
+                    <Modal
+                        show={this.state.modal}
+                    >
+
+                        <Modal.Header closeButton onClick={() => {
+                            this.changeModal();
+                        }}>
+                            <Modal.Title>Chi tiết</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className="form-group">
+                                <form role="form">
+                                    <div>
+                                        <label className="control-label">Thời gian</label>
+                                        <input name="time" value={this.state.detailModal.time || ""}
+                                               onChange={e => this.updateFormData(e)} className="form-control"/>
+                                    </div>
+                                    <div>
+                                        <label className="control-label">Người nói</label>
+                                        <input name="name" value={this.state.detailModal.name || ""}
+                                               onChange={e => this.updateFormData(e)} className="form-control"/>
+                                    </div>
+                                    <div>
+                                        <label className="control-label">Nội dung</label>
+                                        <input name="content" value={this.state.detailModal.content || ""}
+                                               onChange={e => this.updateFormData(e)} className="form-control"/>
+                                    </div>
+                                    <br/>
+                                    <div style={{textAlign: "right"}}>
+                                        <div>
+                                            <button
+                                                type="button"
+                                                className="btn btn-rose"
+                                                onClick={() => {
+                                                    this.submit(this.state.detailModal);
+                                                }}
+                                            >
+                                                Lưu
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="btn"
+                                                onClick={() => {
+                                                    this.changeModal();
+                                                }}
+                                            >
+                                                Huỷ
+                                            </button>
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </Modal.Body>
+                    </Modal>
                 </div>
 
             </div>
         );
     }
 }
+
 export default DetailContainer

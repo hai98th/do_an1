@@ -1,6 +1,6 @@
 import React from "react";
 import {Modal} from "react-bootstrap";
-import * as prj1Api from "./prj1/prj1Api";
+import * as prj1Api from "./prj1Api";
 
 
 class PersonnelContainer extends React.Component {

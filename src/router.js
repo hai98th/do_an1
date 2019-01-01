@@ -17,7 +17,7 @@ export const router = [
         component: MeetingContainer
     },
     {
-        path:'/detail',
+        path:'/detail/:meetingId',
         component: DetailContainer
     },
 ];
