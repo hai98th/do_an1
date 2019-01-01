@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab46bac1-6aed-46d0-b817-71ca5c02c659" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
-      <change beforePath="$PROJECT_DIR$/src/modules/DetailContainer.js" afterPath="$PROJECT_DIR$/src/modules/DetailContainer.js" />
-      <change beforePath="$PROJECT_DIR$/src/modules/MeetingContainer.js" afterPath="$PROJECT_DIR$/src/modules/MeetingContainer.js" />
-      <change beforePath="$PROJECT_DIR$/src/modules/PersonnelContainer.js" afterPath="$PROJECT_DIR$/src/modules/PersonnelContainer.js" />
-      <change beforePath="$PROJECT_DIR$/src/modules/RoomContainer.js" afterPath="$PROJECT_DIR$/src/modules/RoomContainer.js" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/detail/DetailContainer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/detail/DetailModal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/meeting/MeetingComponent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/meeting/MeetingContainer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/meeting/MeetingModal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/meetingRoom/MeetingRoomComponent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/meetingRoom/MeetingRoomContainer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/meetingRoom/MeetingRoomModal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/personnel/PersonnelComponent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/personnel/PersonnelContainer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/personnel/PersonnelModal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/prj1Action.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/prj1Actionstyle.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/prj1Api.js" afterPath="$PROJECT_DIR$/src/modules/prj1Api.js" />
-      <change beforePath="$PROJECT_DIR$/src/modules/prj1/prj1Reducer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tab/TabContainer.js" afterPath="$PROJECT_DIR$/src/modules/TabContainer.js" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" afterPath="$PROJECT_DIR$/src/router.js" />
-    </list>
+    <list default="true" id="ab46bac1-6aed-46d0-b817-71ca5c02c659" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -108,6 +82,11 @@
               <item name="do_an1" type="b2602c69:ProjectViewProjectNode" />
               <item name="do_an1" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="do_an1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="do_an1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -153,17 +132,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1546368178186</updated>
-      <workItem from="1546368180025" duration="7693000" />
+      <workItem from="1546368180025" duration="7805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7693000" />
+    <option name="totallyTimeSpent" value="7805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="-4" width="1309" height="772" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -172,7 +151,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -263,7 +242,7 @@
         <state relative-caret-position="305">
           <caret line="83" column="5" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="83" selection-end-column="5" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -273,7 +252,7 @@
         <state relative-caret-position="136">
           <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -283,7 +262,7 @@
         <state relative-caret-position="306">
           <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#0#52#0" expanded="false" />
           </folding>
         </state>
       </provider>
