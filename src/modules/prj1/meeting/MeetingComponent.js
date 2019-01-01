@@ -1,11 +1,10 @@
 import React from 'react';
-import TooltipButton from '../../../components/common/TooltipButton';
 import {bindActionCreators} from "redux";
 import * as prj1Action from "../prj1Action";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {confirm} from "../../../helpers/helper";
-import {Link} from "react-router";
+
+
 
 
 
@@ -18,9 +17,9 @@ class MeetingComponent extends React.Component {
 
 
     delMeeting(id){
-        confirm("error", "Xóa cuộc họp", "Bạn có chắc muốn xóa cuộc họp", () => {
+
             this.props.prj1Action.deleteMeeting(id);
-        });
+
     }
 
     render() {
@@ -52,14 +51,14 @@ class MeetingComponent extends React.Component {
                                 <tr key={index}>
                                     <td>{index+1}</td>
                                     <td className="film-name">
-                                        <TooltipButton placement="top" text={name}>
+                                        <div>
                                             <div>{name.length < 12 ? name : name.slice(0, 12).concat('...')}</div>
-                                        </TooltipButton>
+                                        </div>
                                     </td>
                                     <td>
-                                        <TooltipButton placement="top" text={description}>
+                                        <div>
                                             <div>{description.length < 25 ? description : description.slice(0, 25).concat('...')}</div>
-                                        </TooltipButton>
+                                        </div>
                                     </td>
 
                                     <td>
@@ -82,20 +81,19 @@ class MeetingComponent extends React.Component {
 
                                         <div className="btn-group-action">
 
-                                            <Link
+                                            <a
                                                 onClick={() => {
                                                     this.props.prj1Action.handleMeetingModal(mt);
                                                 }}
-                                                to={`/prj1/meeting/detail/` + mt.id}
+
                                                 style={{display: "inline-block"}}>
-                                                <TooltipButton placement="top"
-                                                               text={`Chi tiết`}>
+                                                <div >
                                                     <i className="material-icons">add_circle</i>
-                                                </TooltipButton>
-                                            </Link>
+                                                </div>
+                                            </a>
 
 
-                                            <TooltipButton text="Sửa" placement="top"
+                                            <div
                                                            style={{display: "inline-block"}}>
                                                 <a style={{color: "#878787"}}
                                                    onClick={() => {
@@ -104,9 +102,9 @@ class MeetingComponent extends React.Component {
                                                    }}>
                                                     <i className="material-icons">edit</i>
                                                 </a>
-                                            </TooltipButton>
+                                            </div>
 
-                                            <TooltipButton text="Xóa" placement="top"
+                                            <div
                                                            style={{display: "inline-block"}}>
                                                 <a style={{color: "#878787"}}
                                                    onClick={() => {
@@ -114,7 +112,7 @@ class MeetingComponent extends React.Component {
                                                    }}>
                                                     <i className="material-icons">delete</i>
                                                 </a>
-                                            </TooltipButton>
+                                            </div>
                                         </div>
 
                                     </td>

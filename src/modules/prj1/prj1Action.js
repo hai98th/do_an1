@@ -1,6 +1,5 @@
 import * as types from "./prj1Actionstyle";
 import * as prj1Api from "./prj1Api";
-import * as helper from "../../helpers/helper";
 
 
 
@@ -51,7 +50,7 @@ export function creatPersonnel(psn) {
         prj1Api.creatPersonnelApi(psn)
             .then((res)=>{
                 if(res){
-                    helper.showNotification("Tạo nhân sự mới thành công");
+                   alert("Tạo nhân sự mới thành công");
                     dispatch({
                         type: types.SAVE_PERSONNEL_SUCCESS,
                     });
@@ -68,7 +67,7 @@ export function editPersonnel(psn) {
         prj1Api.editPersonnelApi(psn)
             .then((res)=>{
                 if(res){
-                    helper.showNotification("Chỉnh sủa nhân sự thành công");
+                    alert("Chỉnh sủa nhân sự thành công");
                     dispatch({
                         type: types.SAVE_PERSONNEL_SUCCESS,
                     });
@@ -88,7 +87,7 @@ export function deletePersonnel(id) {
         prj1Api.deletePersonnelApi(id)
             .then(function (res) {
                 if (res) {
-                    helper.showNotification("Xóa nhân sự thành công");
+                    alert("Xóa nhân sự thành công");
                     dispatch({
                         type: types.SAVE_PERSONNEL_SUCCESS
                     });
@@ -136,7 +135,7 @@ export function creatRoom(room) {
         prj1Api.creatRoomlApi(room)
             .then((res)=>{
                 if(res){
-                    helper.showNotification("Tạo phòng mới thành công");
+                    alert("Tạo phòng mới thành công");
                     dispatch({
                         type: types.SAVE_ROOM_SUCCESS,
                     });
@@ -153,7 +152,7 @@ export function editRoom(psn) {
         prj1Api.editRoomApi(psn)
             .then((res)=>{
                 if(res){
-                    helper.showNotification("Chỉnh sủa phòng thành công");
+                   alert("Chỉnh sủa phòng thành công");
                     dispatch({
                         type: types.SAVE_ROOM_SUCCESS,
                     });
@@ -173,7 +172,7 @@ export function deleteRoom(id) {
         prj1Api.deleteRoomApi(id)
             .then(function (res) {
                 if (res) {
-                    helper.showNotification("Xóa phòng thành công");
+                    alert("Xóa phòng thành công");
                     dispatch({
                         type: types.SAVE_ROOM_SUCCESS
                     });
@@ -191,6 +190,7 @@ export function getMeeting() {
     return function (dispatch) {
         prj1Api.getMeetingApi()
             .then((res)=>{
+                // dispatch
                 dispatch({
                     type: types.LOAD_MEETING_SUCCESS,
                     meeting: res.data.meeting
@@ -221,7 +221,7 @@ export function creatMeeting(mt) {
         prj1Api.creatMeetinglApi(mt)
             .then((res)=>{
                 if(res){
-                    helper.showNotification("Tạo cuộc họp mới thành công");
+                    alert("Tạo cuộc họp mới thành công");
                     dispatch({
                         type: types.SAVE_MEETING_SUCCESS,
                     });
@@ -238,7 +238,7 @@ export function editMeeting(mt) {
         prj1Api.editMeetingApi(mt)
             .then((res)=>{
                 if(res){
-                    helper.showNotification("Chỉnh sủa cuộc họp thành công");
+                    alert("Chỉnh sủa cuộc họp thành công");
                     dispatch({
                         type: types.SAVE_MEETING_SUCCESS,
                     });
@@ -258,7 +258,7 @@ export function deleteMeeting(id) {
         prj1Api.deleteMeetingApi(id)
             .then(function (res) {
                 if (res) {
-                    helper.showNotification("Xóa cuộc họp thành công");
+                   alert("Xóa cuộc họp thành công");
                     dispatch({
                         type: types.SAVE_MEETING_SUCCESS
                     });
@@ -306,7 +306,7 @@ export function creatDetail(id,mt) {
         prj1Api.creatDetaillApi(id,mt)
             .then((res)=>{
                 if(res){
-                    helper.showNotification("Tạo mới thành công");
+                   alert("Tạo mới thành công");
                     dispatch({
                         type: types.SAVE_DETAIL_SUCCESS,
                     });
@@ -323,7 +323,7 @@ export function editDetail(id,mt) {
         prj1Api.editDetailApi(id,mt)
             .then((res)=>{
                 if(res){
-                    helper.showNotification("Chỉnh sủa thành công");
+                    alert("Chỉnh sủa thành công");
                     dispatch({
                         type: types.SAVE_DETAIL_SUCCESS,
                     });
@@ -343,7 +343,7 @@ export function deleteDetail(id, id2) {
         prj1Api.deleteDetailApi(id, id2)
             .then(function (res) {
                 if (res) {
-                    helper.showNotification("Xóa thành công");
+                    alert("Xóa thành công");
                     dispatch({
                         type: types.SAVE_DETAIL_SUCCESS
                     });

@@ -32,7 +32,7 @@ export function deletePersonnelApi(id) {
 export function getRoomApi() {
     return axios.get("http://0.0.0.0:5000/api/room");
 }
-export function creatRoomlApi(room) {
+export function createRoomApi(room) {
 
     return axios.post("http://0.0.0.0:5000/api/room",room,{
         headers: {

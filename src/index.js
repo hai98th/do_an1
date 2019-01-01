@@ -1,29 +1,12 @@
-/* eslint-disable import/default */
-
 import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
-import {Router, browserHistory} from 'react-router';
-import routes from './routes';
-import configureStore from './store/configureStore';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-import '../node_modules/toastr/build/toastr.min.css';
-import './styles/react-bootstrap-switch.min.css';
-import './styles/dragula.css';
-import './modules/tasks/task.css';
-import './styles/react-select.css';
-import "./styles/react-draft-wysiwyg.css";
-import './styles/styles.scss';
+ReactDOM.render(<App />, document.getElementById('root'));
 
-// import { syncHistoryWithStore } from 'react-router-redux';
-
-const store = configureStore();
-
-// Create an enhanced history that syncs navigation events with the store
-// const history = syncHistoryWithStore(browserHistory, store);
-
-render(
-    <Provider store={store}>
-        <Router history={browserHistory} routes={routes}/>
-    </Provider>, document.getElementById('app')
-);
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();

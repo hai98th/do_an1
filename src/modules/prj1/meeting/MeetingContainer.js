@@ -1,9 +1,5 @@
 import React from 'react';
-import Search from "../../../components/common/Search";
-import TooltipButton from "../../../components/common/TooltipButton";
-import Pagination from "../../../components/common/Pagination";
 import MeetingComponent from "./MeetingComponent";
-import MeetingModal from "./MeetingModal";
 import {bindActionCreators} from "redux";
 import * as prj1Action from "../prj1Action";
 import {connect} from "react-redux";
@@ -15,11 +11,9 @@ class MeetingContainer extends React.Component {
         super(props, context);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.prj1Action.getMeeting();
-        this.props.prj1Action.getRoom();
-        this.props.prj1Action.getPersonnel();
-        this.props.prj1Action.tabChose(2);
+
     }
 
 
@@ -35,9 +29,7 @@ class MeetingContainer extends React.Component {
                             </h4>
 
                             <div>
-                                <TooltipButton
-                                    placement="top"
-                                    text="Tạo cuộc họp">
+                                <div>
                                     <button
                                         className="btn btn-primary btn-round btn-xs button-add none-margin"
                                         type="button"
@@ -48,18 +40,13 @@ class MeetingContainer extends React.Component {
 
                                         <strong>+</strong>
                                     </button>
-                                </TooltipButton>
+                                </div>
                             </div>
 
                         </div>
 
 
-                        <Search
-                            onChange={() => {
-                            }}
-                            value=""
-                            placeholder="Nhập tên cuộc họp để tìm kiếm"
-                        /><br/>
+
 
                         <br/>
 
@@ -69,24 +56,9 @@ class MeetingContainer extends React.Component {
                         <MeetingComponent meeting={this.props.meeting}/>
 
 
-                        <br/>
-                        <div className="row float-right">
-                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                                 style={{textAlign: 'right'}}>
-                                <b style={{marginRight: '15px'}}>
-                                    Hiển thị kêt quả từ {1}
-                                    - {20}/{20}</b><br/>
-                                <Pagination
-                                    totalPages={1}
-                                    currentPage={1}
-                                    loadDataPage={() => {
-                                    }}
-                                />
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-                <MeetingModal/>
             </div>
 
 
@@ -103,7 +75,7 @@ MeetingContainer.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        meeting: state.prj1.meeting,
+        meeting: state.meeting,
     };
 }
 
