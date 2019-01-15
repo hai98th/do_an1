@@ -9,7 +9,9 @@ class RoomContainer extends React.Component {
         this.state = {
             room: [],
             roomModal: {},
-            modal: false
+            modal: false,
+            modal2: false,
+            setRoom: {},
         };
         this.updateFormData = this.updateFormData.bind(this);
     }
@@ -72,6 +74,7 @@ class RoomContainer extends React.Component {
         window.location.reload()
 
     }
+
 
     delete(id) {
         prj1Api.deleteRoomApi(id)
@@ -161,7 +164,11 @@ class RoomContainer extends React.Component {
                                                                 <a data-toggle="tooltip" title="" type="button"
                                                                    rel="tooltip" data-original-title="Xóa"
                                                                    onClick={() => {
-                                                                       this.delete(rm.id);
+                                                                       this.setState({
+                                                                           ...this.state,
+                                                                           modal2: true,
+                                                                           setRoom: rm
+                                                                       })
 
                                                                    }}>
                                                                     <i className="material-icons">delete</i></a></div>
@@ -238,6 +245,48 @@ class RoomContainer extends React.Component {
                                                 className="btn"
                                                 onClick={() => {
                                                     this.changeModal();
+                                                }}
+                                            >
+                                                Huỷ
+                                            </button>
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </Modal.Body>
+                    </Modal>
+                    <Modal show={this.state.modal2} style={{textAlign: "center"}}>
+
+                        <Modal.Header>
+                            <Modal.Title>Thư ký cuộc họp</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className="form-group">
+                                <form role="form">
+                                    <h2 style={{color: "tomato"}}>Bạn muốn xóa</h2>
+                                    <h3><b>Phòng {this.state.setRoom.name}</b></h3>
+                                    <br/>
+                                    <div>
+                                        <div>
+                                            <button
+                                                type="button"
+                                                className="btn btn-rose"
+                                                onClick={() => {
+                                                    this.delete(this.state.setRoom.id);
+                                                    this.setState({...this.state, modal2: false})
+                                                }}
+                                            >
+                                                Xác nhận
+                                            </button>
+                                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                            <button
+                                                type="button"
+                                                className="btn"
+                                                onClick={() => {
+                                                    this.setState({...this.state, modal2: false})
                                                 }}
                                             >
                                                 Huỷ

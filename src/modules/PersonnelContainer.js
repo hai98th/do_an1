@@ -128,7 +128,7 @@ class PersonnelContainer extends React.Component {
                                     <th>Email</th>
                                     <th>Chức vụ</th>
                                     <th>Bộ phận</th>
-                                    <th>File giọng nói</th>
+                                    {/*<th>File giọng nói</th>*/}
                                     <th/>
                                 </tr>
                                 </thead>
@@ -159,17 +159,17 @@ class PersonnelContainer extends React.Component {
                                                 <td>
                                                     {ps.part}
                                                 </td>
-                                                <td>
-                                                    {
-                                                        JSON.parse(ps.sounds) && JSON.parse(ps.sounds).map((s, index) => {
-                                                            return (
-                                                                <div key={index}>
-                                                                    <audio ref="audio_tag" src={s} controls/>
-                                                                </div>
-                                                            );
-                                                        })
-                                                    }
-                                                </td>
+                                                {/*<td>*/}
+                                                    {/*{*/}
+                                                        {/*JSON.parse(ps.sounds) && JSON.parse(ps.sounds).map((s, index) => {*/}
+                                                            {/*return (*/}
+                                                                {/*<div key={index}>*/}
+                                                                    {/*<audio ref="audio_tag" src={s} controls/>*/}
+                                                                {/*</div>*/}
+                                                            {/*);*/}
+                                                        {/*})*/}
+                                                    {/*}*/}
+                                                {/*</td>*/}
                                                 <td>
 
 

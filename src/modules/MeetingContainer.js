@@ -16,9 +16,7 @@ class MeetingContainer extends React.Component {
             modal: false,
             meetingModal: {},
         };
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.fileUpload = this.fileUpload.bind(this);
+
         this.updateFormData = this.updateFormData.bind(this);
         this.changTemplateTypes2 = this.changTemplateTypes2.bind(this);
         this.changTemplateTypes = this.changTemplateTypes.bind(this);
@@ -98,28 +96,6 @@ class MeetingContainer extends React.Component {
         })
     }
 
-    onFormSubmit(e) {
-        e.preventDefault();
-        this.fileUpload(this.state.file).then((response) => {
-            if (response) alert("Tải file thành công!");
-        })
-    }
-
-    onChange(e) {
-        this.setState({file: e.target.files[0]})
-    }
-
-    fileUpload(file) {
-        const url = 'http://localhost:5000/api/uploader';
-        const formData = new FormData();
-        formData.append('file', file);
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        };
-        return post(url, formData, config)
-    }
 
 
     getMeeting() {
@@ -192,23 +168,7 @@ class MeetingContainer extends React.Component {
 
                                 </div>
                             </div>
-                            <div className="col-md-8">
-                                <div className="flex-row flex">
-                                    <h4 className="card-title">
-                                        <strong>Tải file ghi âm &emsp;</strong>
-                                    </h4>
 
-                                    <div>
-                                        <form onSubmit={this.onFormSubmit} className="flex-row flex">
-                                            <input  type="file" onChange={this.onChange}/>
-                                            <button className="upload_button"
-                                                type="submit" >Upload</button>
-                                        </form>
-                                    </div>
-
-
-                                </div>
-                            </div>
                         </div>
 
 

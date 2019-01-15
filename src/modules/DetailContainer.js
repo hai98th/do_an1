@@ -1,6 +1,7 @@
 import React from "react";
 import * as prj1Api from "./prj1Api";
 import {Modal} from "react-bootstrap";
+import {post} from "axios/index";
 
 
 class DetailContainer extends React.Component {
@@ -12,6 +13,9 @@ class DetailContainer extends React.Component {
             modal: false,
             detailModal: {},
         };
+        this.onFormSubmit = this.onFormSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.fileUpload = this.fileUpload.bind(this);
     }
 
     componentWillMount() {
@@ -94,6 +98,40 @@ class DetailContainer extends React.Component {
         window.location.reload()
 
     }
+
+    onFormSubmit(e) {
+        e.preventDefault();
+        this.fileUpload(this.state.file).then((response) => {
+            if (response) alert("Tải file thành công!");
+            this.setState({
+                ...this.state,
+                modal: true,
+                detailModal: {
+                    time: "Change",
+                    name: "Unknow",
+                    content: response.data.transcription[0][0]
+                }
+            })
+        })
+    }
+
+    onChange(e) {
+        this.setState({file: e.target.files[0]})
+    }
+
+    fileUpload(file) {
+        const url = 'http://localhost:5000/api/upload';
+        const formData = new FormData();
+        formData.append('file', file);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        };
+        return post(url, formData, config)
+    }
+
+
     render() {
         let mt = {};
         if (this.state.meeting[0]) {
@@ -155,6 +193,23 @@ class DetailContainer extends React.Component {
 
                                                 <strong>+</strong>
                                             </button>
+                                        </div>
+                                    </div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                    <div className="col-md-8">
+                                        <div className="flex-row flex">
+                                            <h4 className="card-title">
+                                                <strong>Tải file ghi âm &emsp;</strong>
+                                            </h4>
+
+                                            <div>
+                                                <form onSubmit={this.onFormSubmit} className="flex-row flex">
+                                                    <input  type="file" onChange={this.onChange}/>
+                                                    <button className="upload_button"
+                                                            type="submit" >Upload</button>
+                                                </form>
+                                            </div>
+
+
                                         </div>
                                     </div>
 
