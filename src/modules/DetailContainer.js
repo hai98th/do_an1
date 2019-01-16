@@ -120,7 +120,7 @@ class DetailContainer extends React.Component {
     }
 
     fileUpload(file) {
-        const url = 'http://localhost:5000/api/upload';
+        const url = 'http://192.168.4.57:5000/api/upload';
         const formData = new FormData();
         formData.append('file', file);
         const config = {
