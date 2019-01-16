@@ -108,8 +108,8 @@ class DetailContainer extends React.Component {
                 modal: true,
                 detailModal: {
                     time: "Change",
-                    name: "Unknow",
-                    content: response.data.transcription[0][0]
+                    name: response.data.result,
+                    content: JSON.parse(response.data.content).transcription[0][0]
                 }
             })
         })
